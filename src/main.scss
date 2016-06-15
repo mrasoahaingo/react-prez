@@ -1,0 +1,38 @@
+$color: #242934;
+
+body {
+  background-color: $color;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  padding: 10px;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.item {
+  height: 40em;
+  overflow: hidden;
+}
+
+h3 {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  line-height: 1.5em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

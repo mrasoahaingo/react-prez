@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { FormControl } from 'react-bootstrap';
 
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => ({
+  search: term => dispatch({
+    type: 'SEARCH',
+    payload: term
+  })
+});
+
+@connect(
+  mapStateToProps,
+  mapDispatchToProps
+)
 class SearchForm extends Component {
   state = {
     value: ''
@@ -15,7 +28,7 @@ class SearchForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.props.search(this.state.value);
   };
 
   render() {

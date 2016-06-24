@@ -1,0 +1,1 @@
+export default (state) => state.movies.filter(movie => movie.title.indexOf(state.searchTerm) > -1);

@@ -2,6 +2,7 @@
 aliases:
   - compo: ./src/components
   - reducers: ./src/reducers
+  - sel: ./src/selectors
 
 plugins:
   - tarec-plugin-mocha-test

@@ -4,11 +4,10 @@ import App from 'compo/App';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import appReducer from 'reducers';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'main.scss';
-
-const reducers = (state) => state;
 
 fetch('https://api.themoviedb.org/3/discover/movie?api_key=61a7fe0a2defc2d41f21253258bf6a4e', {
   mode: 'cors',
@@ -21,13 +20,14 @@ fetch('https://api.themoviedb.org/3/discover/movie?api_key=61a7fe0a2defc2d41f212
   .then(response => {
 
     const initialState = {
+      searchTerm: '',
       movies: response.results
     };
-    const store = createStore(reducers, initialState);
+    const store = createStore(appReducer, initialState, window.devToolsExtension());
 
     render(
       <Provider store={store}>
-        <App />
+        <App/>
       </Provider>, document.getElementById('app')
     );
   });

@@ -1,5 +1,6 @@
 import expect from 'expect';
 import appReducer from 'reducers';
+import {createStore} from 'redux';
 
 describe('Reducers', () => {
 
@@ -15,5 +16,14 @@ describe('Reducers', () => {
       searchTerm: 'Batman'
     });
 
+  });
+
+  it('should update the store when dispatching', () => {
+    const store = createStore(appReducer, {});
+    store.dispatch({
+      type: 'SEARCH',
+      payload: 'Avengers'
+    });
+    expect(store.getState()).toEqual({searchTerm: 'Avengers'})
   });
 });

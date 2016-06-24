@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 import MovieItem from './MovieItem';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import moviesBySearchTerm from 'sel/moviesBySearchTerm';
 
 @connect(
   state => ({
-    movies: state.movies
+    movies: moviesBySearchTerm(state)
   })
 )
 class MovieList extends Component {
